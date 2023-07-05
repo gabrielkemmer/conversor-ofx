@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Financial Information</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+<div id="container">
+    <div id="sideMenu">
+      <div id="sideMenuFixed"></div>
+      <div id="sidecontent">
+      <h1>Escolha seu banco abaixo</h1>
+  
+      <ul class="menu">
+        <li>Principal</li>
+        <li><a href="/" class="links">Home</a></li>
+        <li><a href="/santander" class="links">Santander</a></li>
+        <li><a href="/bb" class="links">Banco Do Brasil</a></li>
+        <li><a href="/bradesco" class="links">Bradesco</a></li>
+        <li><a href="/cef" class="links">Caixa Econômica Federal</a></li>
+        <li><a href="/sicred" class="links">Sicred</a></li>
+        <li><a href="/cora" class="links">Cora</a></li>
+        <li><a href="/logout" class="links-home">Sair</a></li>
+      </ul>
+      <!--<div class="addCategory"><span class="plus">+</span> Add Category</div>-->
+      </div>
+    </div>
+    <div id="content">
+      <div id="titleBar">
+        <h2>Conversor OFX - Bradesco</h2>
+      </div>
+        <form method="POST" action="{{ url_for('bradesco') }}" enctype="multipart/form-data">
+            <label for="file">Escolher arquivo</label>
+            <input type="file" id="file" name="file">
+            <br><br>
+            <input type="submit" value="Enviar">
+        </form>
+      <br></br>
+      <br></br>
+      <div>
+        <h3>Formatos aceitos:</h3>
+        <h3>XLSX</h3>
+      </div>  
+      {% with messages = get_flashed_messages() %}
+      {% if messages %}
+      <div class="flash-messages">
+          {% for message in messages %}
+          <div class="flash-message">{{ message }}</div>
+          {% endfor %}
+      </div>
+      {% endif %}
+      {% endwith %}  
+      </div>
+    </div>
+  </div>
+  </div>
+</body>
+</html>
