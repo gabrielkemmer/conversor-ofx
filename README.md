@@ -54,4 +54,4 @@ PyPDF2
 Requests
 Contact
 
-For any questions or inquiries, please contact [email protected]
+For any questions or inquiries, please contact gabrielkemmer@gmail.com
