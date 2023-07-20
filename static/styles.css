@@ -680,7 +680,14 @@ footer {
 }
 
 .footer_home{
-  margin-left:100px;
+  color: white;
+  align-items: center;
+  text-align: center;
+  text-decoration: none;
+}
+
+.footer_pages{
+  margin-left: 100px;
   color: white;
   align-items: center;
   text-align: center;
