@@ -5,7 +5,8 @@
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles.css') }}">
 </head>
 <body>
-    <h2>Login</h2>
+    <h3 class="titulo">CONTABILITOOLS - Ferramentas Para Produtividade Contábil</h3>
+    <h2 class="login">Login</h2>
     <form method="POST" action="/login">
         <div class="nome-de-usuario">
             <label class="nome-de-usuario" for="username">Nome de usuário:</label>
@@ -18,5 +19,8 @@
         <div>
             <input type="submit" value="Login">
         </div>
+        <footer class="footer_home">
+            Contabilitools 2023 - Todos direitos reservados. <a href="https://contabilitools.com.br/" class="link_footer">Contabilitools</a>
+        </footer>
 </body>
 </html>

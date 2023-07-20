@@ -661,3 +661,35 @@ delete-form label {
 .nome-de-usuario{
   margin-bottom: 30px;
 }
+
+.titulo{
+  margin-top: 100px;
+  margin-bottom: -30px;
+}
+.login{
+  margin-top: 100px;
+}
+
+footer {
+  padding: 10px;
+  text-align: center;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+}
+
+.footer_home{
+  margin-left:100px;
+  color: white;
+  align-items: center;
+  text-align: center;
+  text-decoration: none;
+}
+
+.link_footer{
+  color: white;
+  align-items: center;
+  text-align: center;
+  text-decoration: none;
+}
