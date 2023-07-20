@@ -24,12 +24,10 @@ from werkzeug.utils import secure_filename
 from pymongo import MongoClient
 from werkzeug.security import generate_password_hash, check_password_hash
 
-#host='146.190.145.32', port=5000
-
-def create_app():
+def create_app(host='146.190.145.32', port=5000):
     app = Flask(__name__)
     app.secret_key = 'Fn741953.741953'
-    #app.config['SERVER_NAME'] = 'conversor.contabilitools.com.br'
+    app.config['SERVER_NAME'] = 'conversor.contabilitools.com.br'
 
     # MongoDB configuration
     client = MongoClient('mongodb+srv://gabrielkemmer:Araujo35@cluster0.yxrnwy9.mongodb.net/?retryWrites=true&w=majority')
