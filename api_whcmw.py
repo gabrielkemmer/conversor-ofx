@@ -31,7 +31,7 @@ def update_active_users():
         if user['status'] == 'Active':
             active.append(user['email'])
         else:
-            inactive.append(user)
+            inactive.append(user['email'])
 
     # Connect to MongoDB and insert/update the documents
     client = MongoClient('mongodb+srv://gabrielkemmer:Araujo35@cluster0.yxrnwy9.mongodb.net/?retryWrites=true&w=majority')  # Update with your MongoDB connection URI
@@ -54,6 +54,23 @@ def update_active_users():
                 {'email': email},  # Replace '_id' with the unique identifier field of your documents
                 {'$set': {'status': 'inactive'}}
             )
+
+    for email in active:
+        check_email = users_collection.find_one({'username': email})
+        if check_email:
+            users_collection.update_one(
+                {'username': email},  # Replace '_id' with the unique identifier field of your documents
+                {'$set': {'status': 'active'}}
+            )
+
+    for email in inactive:
+        check_email = users_collection.find_one({'username': email})
+        if check_email:
+            users_collection.update_one(
+                {'username': email},  # Replace '_id' with the unique identifier field of your documents
+                {'$set': {'status': 'inactive'}}
+            )
+
 
 schedule.every().day.at("01:00").do(update_active_users)
 

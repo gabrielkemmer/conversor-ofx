@@ -50,12 +50,14 @@ def create_app(host='146.190.145.32', port=5000):
             password = request.form['password']
 
             user = users_collection.find_one({'username': username})
-
-            if user and check_password_hash(user['password'], password):
-                session['username'] = username
-                return redirect('/')
+            if user['status'] == 'active':
+                if user and check_password_hash(user['password'], password):
+                    session['username'] = username
+                    return redirect('/')
+                else:
+                    return 'Invalid username or password'
             else:
-                return 'Invalid username or password'
+                return 'Seu pagamento está em atraso, regularize o seu débito para voltar a utilizar o conversor.'
 
         return render_template('login.html')
 
